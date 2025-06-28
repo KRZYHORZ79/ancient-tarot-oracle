@@ -59,24 +59,29 @@ st.markdown("<div class='title'>🕯️ Ancient Tarot Oracle 🕯️<br><i>Unear
 birth_input = st.text_input("Enter your birth date (DD/MM/YYYY):")
 if birth_input:
     try:
-        birth_date = datetime.strptime(birth_input, "%d/%m/%Y")
-        card = random.choice(tarot_cards)
-response = requests.get(card["image_url"])
 try:
-    image = Image.open(BytesIO(response.content))
-    st.image(image, caption=card["name"], use_column_width=True)
-except Exception as e:
-    st.error(f"Could not load image for {card['name']}. The image may be corrupted or not in a supported format.")
-    st.write("Error details:", str(e))
+    birth_date = datetime.strptime(birth_input, "%d/%m/%Y")
+    card = random.choice(tarot_cards)
 
-        st.markdown(f"<div class='card-name'>{card['name']}</div>", unsafe_allow_html=True)
-        st.markdown(f"""
-        <div class='reading-box'>
-        <b>Reading:</b><br>
-        You were born under a celestial alignment hidden in the heavens.<br><br>
-        The card revealed to you — <i>{card['name']}</i> — whispers of ancient forces and forgotten truths. <br><br>
-        This card, once sealed in stone, calls to your essence. Seek its lesson with heart open, and the forgotten path shall reawaken.
-        </div>
-        """, unsafe_allow_html=True)
+    response = requests.get(card["image_url"])
+    try:
+        image = Image.open(BytesIO(response.content))
+        st.image(image, caption=card["name"], use_column_width=True)
+    except Exception as e:
+        st.error(f"Could not load image for {card['name']}. The image may be corrupted or not in a supported format.")
+        st.write("Error details:", str(e))
+
+    st.markdown(f"<div class='card-name'>{card['name']}</div>", unsafe_allow_html=True)
+    st.markdown(f"""
+    <div class='reading-box'>
+    <b>Reading:</b><br>
+    You were born under a celestial alignment hidden in the heavens.<br><br>
+    The card revealed to you — <i>{card['name']}</i> — whispers of ancient forces and forgotten truths. <br><br>
+    This card, once sealed in stone, calls to your essence. Seek its lesson with heart open, and the forgotten path shall reawaken.
+    </div>
+    """, unsafe_allow_html=True)
+
+except ValueError:
+    st.error("Please enter a valid date in DD/MM/YYYY format.")
     except ValueError:
         st.error("Please enter a valid date in DD/MM/YYYY format.")
