@@ -43,8 +43,15 @@ tarot_cards = [
     {"name": "The Fool", "image_url": "https://upload.wikimedia.org/wikipedia/en/9/90/RWS_Tarot_00_Fool.jpg"},
     {"name": "The Magician", "image_url": "https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg"},
     {"name": "The High Priestess", "image_url": "https://upload.wikimedia.org/wikipedia/en/8/88/RWS_Tarot_02_High_Priestess.jpg"},
-    # Add more...
+    {"name": "The Empress", "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d2/RWS_Tarot_03_Empress.jpg"},
+    {"name": "The Emperor", "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg"},
+    {"name": "The Hierophant", "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8d/RWS_Tarot_05_Hierophant.jpg"},
+    {"name": "The Lovers", "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3a/TheLovers.jpg"},
+    {"name": "The Chariot", "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3b/RWS_Tarot_07_Chariot.jpg"},
+    {"name": "Strength", "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg"},
+    {"name": "The Hermit", "image_url": "https://upload.wikimedia.org/wikipedia/en/4/4d/RWS_Tarot_09_Hermit.jpg"}
 ]
+
 
 
 st.markdown("<div class='title'>🕯️ Ancient Tarot Oracle 🕯️<br><i>Unearthed from the Sands of Time</i></div>", unsafe_allow_html=True)
