@@ -1,4 +1,3 @@
-
 import streamlit as st
 from PIL import Image
 import requests
@@ -6,8 +5,10 @@ import random
 from io import BytesIO
 from datetime import datetime
 
+# --- Streamlit page settings ---
 st.set_page_config(page_title="Ancient Tarot Oracle", layout="centered")
 
+# --- Custom Styling ---
 st.markdown("""
     <style>
     html, body, [class*="css"] {
@@ -39,6 +40,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# --- Tarot Cards (10 to start) ---
 tarot_cards = [
     {"name": "The Fool", "image_url": "https://upload.wikimedia.org/wikipedia/en/9/90/RWS_Tarot_00_Fool.jpg"},
     {"name": "The Magician", "image_url": "https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg"},
@@ -52,36 +54,34 @@ tarot_cards = [
     {"name": "The Hermit", "image_url": "https://upload.wikimedia.org/wikipedia/en/4/4d/RWS_Tarot_09_Hermit.jpg"}
 ]
 
-
-
+# --- Title ---
 st.markdown("<div class='title'>🕯️ Ancient Tarot Oracle 🕯️<br><i>Unearthed from the Sands of Time</i></div>", unsafe_allow_html=True)
 
+# --- User Input ---
 birth_input = st.text_input("Enter your birth date (DD/MM/YYYY):")
+
 if birth_input:
     try:
-try:
-    birth_date = datetime.strptime(birth_input, "%d/%m/%Y")
-    card = random.choice(tarot_cards)
+        birth_date = datetime.strptime(birth_input, "%d/%m/%Y")
+        card = random.choice(tarot_cards)
 
-    response = requests.get(card["image_url"])
-    try:
-        image = Image.open(BytesIO(response.content))
-        st.image(image, caption=card["name"], use_column_width=True)
-    except Exception as e:
-        st.error(f"Could not load image for {card['name']}. The image may be corrupted or not in a supported format.")
-        st.write("Error details:", str(e))
+        response = requests.get(card["image_url"])
+        try:
+            image = Image.open(BytesIO(response.content))
+            st.image(image, caption=card["name"], use_column_width=True)
+        except Exception as e:
+            st.error(f"Could not load image for {card['name']}. The image may be corrupted or not in a supported format.")
+            st.write("Error details:", str(e))
 
-    st.markdown(f"<div class='card-name'>{card['name']}</div>", unsafe_allow_html=True)
-    st.markdown(f"""
-    <div class='reading-box'>
-    <b>Reading:</b><br>
-    You were born under a celestial alignment hidden in the heavens.<br><br>
-    The card revealed to you — <i>{card['name']}</i> — whispers of ancient forces and forgotten truths. <br><br>
-    This card, once sealed in stone, calls to your essence. Seek its lesson with heart open, and the forgotten path shall reawaken.
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown(f"<div class='card-name'>{card['name']}</div>", unsafe_allow_html=True)
+        st.markdown(f"""
+        <div class='reading-box'>
+        <b>Reading:</b><br>
+        You were born under a celestial alignment hidden in the heavens.<br><br>
+        The card revealed to you — <i>{card['name']}</i> — whispers of ancient forces and forgotten truths. <br><br>
+        This card, once sealed in stone, calls to your essence. Seek its lesson with heart open, and the forgotten path shall reawaken.
+        </div>
+        """, unsafe_allow_html=True)
 
-except ValueError:
-    st.error("Please enter a valid date in DD/MM/YYYY format.")
     except ValueError:
         st.error("Please enter a valid date in DD/MM/YYYY format.")
