@@ -46,7 +46,7 @@ tarot_cards = [
     {"name": "The Magician", "image_url": "https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg"},
     {"name": "The High Priestess", "image_url": "https://upload.wikimedia.org/wikipedia/en/8/88/RWS_Tarot_02_High_Priestess.jpg"},
     {"name": "The Empress", "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d2/RWS_Tarot_03_Empress.jpg"},
-    {"name": "The Emperor", "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_Emperor.jpg"},
+    {"name": "The Emperor", "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c3/RWS_Tarot_04_The_Emperor.jpg"},
     {"name": "The Hierophant", "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8d/RWS_Tarot_05_Hierophant.jpg"},
     {"name": "The Lovers", "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3a/TheLovers.jpg"},
     {"name": "The Chariot", "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3b/RWS_Tarot_07_Chariot.jpg"},
