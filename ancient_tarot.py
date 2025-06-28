@@ -62,8 +62,13 @@ if birth_input:
         birth_date = datetime.strptime(birth_input, "%d/%m/%Y")
         card = random.choice(tarot_cards)
         response = requests.get(card["image_url"])
+        try:
         image = Image.open(BytesIO(response.content))
         st.image(image, caption=card["name"], use_column_width=True)
+        except Exception as e:
+        st.error(f"Could not load image for {card['name']}. The image may be corrupted or not in a supported format.")
+        st.write("Error details:", e)
+
         st.markdown(f"<div class='card-name'>{card['name']}</div>", unsafe_allow_html=True)
         st.markdown(f"""
         <div class='reading-box'>
